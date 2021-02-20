@@ -1,4 +1,5 @@
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -10,7 +11,7 @@ import java.util.Collection;
 @RunWith(Parameterized.class)
 public class BasicCalciTests {
     @BeforeClass
-    public static void beforeEmailClass(){
+    public static void beforeCalciClass(){
         System.out.println("Running Basic Calci Tests");
     }
 
@@ -32,6 +33,6 @@ public class BasicCalciTests {
     @Test
     public void multiplicationTesting() {
         Calculator calci = new Calculator();
-        Assert.assertEquals("Multiplication", result, calci.multiply(a, b));
+        Assert.assertEquals("Multiplication", result, calci.multiply(a, b), 1e-15);
     }
 }

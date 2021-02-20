@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: BasicCalciTests
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 3, Errors: 0, Skipped: 0, Time elapsed: 0.047 s <<< FAILURE! - in BasicCalciTests
+multiplicationTesting[0](BasicCalciTests)  Time elapsed: 0.005 s  <<< FAILURE!
+java.lang.AssertionError: Use assertEquals(expected, actual, delta) to compare floating-point numbers
+	at BasicCalciTests.multiplicationTesting(BasicCalciTests.java:36)
+
+multiplicationTesting[1](BasicCalciTests)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: Use assertEquals(expected, actual, delta) to compare floating-point numbers
+	at BasicCalciTests.multiplicationTesting(BasicCalciTests.java:36)
+
+multiplicationTesting[2](BasicCalciTests)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: Use assertEquals(expected, actual, delta) to compare floating-point numbers
+	at BasicCalciTests.multiplicationTesting(BasicCalciTests.java:36)
+
