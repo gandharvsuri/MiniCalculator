@@ -1,38 +1,55 @@
 import org.junit.Assert;
-import org.junit.BeforeClass;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.Parameterized;
-import org.junit.runners.Parameterized.*;
+
+import org.junit.*;
+import sun.awt.SunToolkit;
+
+import static jdk.nashorn.internal.objects.Global.Infinity;
+import static jdk.nashorn.internal.objects.Global.NaN;
+import static org.junit.Assert.*;
 
 import java.util.Arrays;
 import java.util.Collection;
 
-@RunWith(Parameterized.class)
+
 public class BasicCalciTests {
     @BeforeClass
     public static void beforeCalciClass(){
         System.out.println("Running Basic Calci Tests");
     }
 
-    @Parameter(0)
-    public double a; // 1
-
-    @Parameter(1)
-    public double b; // 2
-
-    @Parameter(2)
-    public double result; // 2
-
-    @Parameters
-    public static Collection<Object[]> data(){
-        Object[][] data = new Object[][] {{1,2,2}, {2,5,10}, {0, 10, 0}};
-        return Arrays.asList(data);
-    }
-
     @Test
     public void multiplicationTesting() {
         Calculator calci = new Calculator();
-        Assert.assertEquals("Multiplication", result, calci.multiply(a, b), 1e-15);
+        Assert.assertEquals("Multiplication ", 2, calci.multiply(1, 2), 1e-15);
+        Assert.assertEquals("Multiplication ", 0, calci.multiply(0, 2), 1e-15);
+        Assert.assertEquals("Multiplication ", 8, calci.multiply(4, 2), 1e-15);
+        Assert.assertEquals("Multiplication ", 26, calci.multiply(4, 9), 1e-15);
+    }
+
+    @Test
+    public void additionTesting() {
+        Calculator calci = new Calculator();
+        Assert.assertEquals("Addition ", 2, calci.add(0, 2), 1e-15);
+        Assert.assertEquals("Addition ", 6, calci.add(4, 2), 1e-15);
+        Assert.assertEquals("Addition ", 3, calci.add(1, 2), 1e-15);
+        Assert.assertEquals("Addition ", 13, calci.add(4, 9), 1e-15);
+    }
+
+    @Test
+    public void subtractionTesting() {
+        Calculator calci = new Calculator();
+        Assert.assertEquals("Subtraction ", -2, calci.subtract(0, 2), 1e-15);
+        Assert.assertEquals("Subtraction ", 2, calci.subtract(4, 2), 1e-15);
+        Assert.assertEquals("Subtraction ", -1, calci.subtract(1, 2), 1e-15);
+        Assert.assertEquals("Subtraction ", 9, calci.subtract(9, 0), 1e-15);
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void divisonTesting() {
+        Calculator calci = new Calculator();
+        Assert.assertEquals("Division ", 0, calci.divide(0, 2), 1e-15);
+        Assert.assertEquals("Division ", 2, calci.divide(4, 2), 1e-15);
+        Assert.assertEquals("Division ", 0.5, calci.divide(1, 2), 1e-15);
+        Assert.assertEquals("Division ", 9/0, calci.divide(9, 0), 1e-15);
     }
 }

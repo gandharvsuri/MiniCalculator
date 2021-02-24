@@ -1,6 +1,8 @@
 import java.lang.*;
 import java.util.*;
 
+import static java.lang.Float.NaN;
+
 public class Calculator {
     public double add(double first, double second) {
         return first + second;
@@ -19,12 +21,13 @@ public class Calculator {
     }
 
     public double sqrroot(double base) {
-        return Math.pow(base,1/2);
+        return Math.pow(base,(double) 1/2);
     }
 
     private double factorial_helper(double base, double remainder){
-        if(base == 1) return remainder;
+        if(base == 0) return remainder;
 
+        if(base < 0) return NaN;
         return factorial_helper(base-1, base*remainder);
     }
     public double factorial(double base) {
