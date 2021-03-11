@@ -1,3 +1,4 @@
+import java.beans.PropertyEditorSupport;
 import java.lang.*;
 import java.util.*;
 import org.apache.logging.log4j.LogManager;
@@ -107,16 +108,16 @@ public class Calculator {
         double result = 0;
 
         try {
-            if(argument < 0){
+            if(argument <= 0){
                 result = Double.NaN;
-                throw new ArithmeticException("Logarithm of negative number");
+                throw new ArithmeticException("Logarithm of non positive number");
             }
             else{
                 result = logarithm(argument, Math.exp(1));
             }
         }
         catch (ArithmeticException error){
-            logger.error("[LOGARITHM EXCEPTION] - NEGATIVE BASE "+ error.getLocalizedMessage());
+            logger.error("[LOGARITHM EXCEPTION] - NON POSITIVE BASE "+ error.getLocalizedMessage());
         }
         finally {
             logger.info("[RESULT NATURAL LOGARITHM] : "+result);
@@ -129,8 +130,22 @@ public class Calculator {
 
     public double power(double base, double power){
         logger.info("[POWER] :" + base + "," + power);
-        double result = Math.pow(base,power);
-        logger.info("[POWER RESULT] :" + result);
+        double result = 0;
+        try{
+            if(base == 0 && power <= 0){
+                result = Double.NaN;
+                throw new ArithmeticException("Indeterministic form");
+            }
+            else{
+                result = Math.pow(base,power);
+            }
+        }
+        catch(ArithmeticException error){
+            logger.error("[POWER EXCEPTION] - INDETERMINISTIC FORM "+ error.getLocalizedMessage());
+        }
+        finally {
+            logger.info("[POWER RESULT] :" + result);
+        }
         return result;
     }
 

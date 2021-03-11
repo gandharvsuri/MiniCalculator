@@ -50,6 +50,6 @@ public class BasicCalciTests {
         Assert.assertEquals("Division ", 0, calci.divide(0, 2), 1e-15);
         Assert.assertEquals("Division ", 2, calci.divide(4, 2), 1e-15);
         Assert.assertEquals("Division ", 0.5, calci.divide(1, 2), 1e-15);
-        Assert.assertEquals("Division ", 9/0, calci.divide(9, 0), 1e-15);
+        Assert.assertEquals("Division ", Double.NaN, calci.divide(9, 0), 1e-15);
     }
 }

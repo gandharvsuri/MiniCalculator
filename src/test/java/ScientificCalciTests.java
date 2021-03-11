@@ -22,7 +22,7 @@ public class ScientificCalciTests {
         Calculator calci = new Calculator();
         Assert.assertEquals("Square Root ", 1.3038404810405297, calci.sqrroot(1.7), 1e-15);
         Assert.assertEquals("Square Root ", 0, calci.sqrroot(0), 1e-15);
-        Assert.assertEquals("Square Root ", NaN, calci.sqrroot(-1), 1e-15);
+        Assert.assertEquals("Square Root ", Double.NaN, calci.sqrroot(-1), 1e-15);
         Assert.assertEquals("Square Root ", 2.23606797749979, calci.sqrroot(5), 1e-15);
     }
 
@@ -31,17 +31,25 @@ public class ScientificCalciTests {
         Calculator calci = new Calculator();
         Assert.assertEquals("Factorial Testing ", 120, calci.factorial(5), 1e-15);
         Assert.assertEquals("Factorial Testing ", 1, calci.factorial(0), 1e-15);
-//        Assert.assertEquals("Factorial Testing ", NaN, calci.factorial(-1), 1e-15);
+        Assert.assertEquals("Factorial Testing ", Double.NaN, calci.factorial(-1), 1e-15);
         Assert.assertEquals("Factorial Testing ", 2, calci.factorial(2), 1e-15);
     }
 
     @Test
-    @Ignore("Need to work on logarithmic Testing")
     public void logarithmicTesting() {
         Calculator calci = new Calculator();
         Assert.assertEquals("Natural Logarithmic Testing ", 1.3862943611198906, calci.natural_log(4), 1e-15);
-//        Assert.assertEquals("Natural Logarithmic Testing ", -1/0, calci.natural_log(0), 1e-15);
-//        Assert.assertEquals("Natural Logarithm Testing", NaN, calci.natural_log(-1), 1e-15);
-//        Assert.assertEquals("Natural Logarithmic Testing ", 4, calci.natural_log(2), 1e-15);
+        Assert.assertEquals("Natural Logarithmic Testing ", Double.NaN, calci.natural_log(0), 1e-15);
+        Assert.assertEquals("Natural Logarithmic Testing", NaN, calci.natural_log(-1), 1e-15);
+    }
+
+    @Test
+    public void powerTesting() {
+        Calculator calci = new Calculator();
+        Assert.assertEquals("Power Testing ", 1, calci.power(4, 0), 1e-15);
+        Assert.assertEquals("Power Testing ", Double.NaN, calci.power(0, 0), 1e-15);
+        Assert.assertEquals("Power Testing", 1, calci.power(-1,2), 1e-15);
+        Assert.assertEquals("Power Testing", 27, calci.power(3,3), 1e-15);
+        Assert.assertEquals("Power Testing", -8, calci.power(-2,3), 1e-15);
     }
 }
