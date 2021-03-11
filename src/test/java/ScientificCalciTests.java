@@ -40,7 +40,7 @@ public class ScientificCalciTests {
         Calculator calci = new Calculator();
         Assert.assertEquals("Natural Logarithmic Testing ", 1.3862943611198906, calci.natural_log(4), 1e-15);
         Assert.assertEquals("Natural Logarithmic Testing ", Double.NaN, calci.natural_log(0), 1e-15);
-        Assert.assertEquals("Natural Logarithmic Testing", NaN, calci.natural_log(-1), 1e-15);
+        Assert.assertEquals("Natural Logarithmic Testing", Double.NaN, calci.natural_log(-1), 1e-15);
     }
 
     @Test
