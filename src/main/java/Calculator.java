@@ -9,6 +9,121 @@ import static java.lang.Float.NaN;
 public class Calculator {
     private static final Logger logger = LogManager.getLogger(Calculator.class);
 
+    public static void main(String[] args) {
+        Calculator calculator = new Calculator();
+        Scanner scanner = new Scanner(System.in);
+        double number1, number2;
+        do {
+            System.out.println("Calculator, Choose to perform operation");
+            System.out.print("Press 1 to Add\nPress 2 to Subtract\nPress 3 to Multiply\nPress 4 to Divide\n"+
+                    "Press 5 to calculate Square Root\nPress 6 to calculate Factorial\nPress 7 to calculate Natural Logarithm\nPress 8 to calculate Power" +
+                    "Press any other key to exit\nEnter your choice: ");
+            int choice;
+            try {
+                choice = scanner.nextInt();
+            } catch (InputMismatchException error) {
+                return;
+            }
+
+            switch (choice) {
+                case 1:
+                    try {
+                        System.out.print("Enter the first number : ");
+                        number1 = scanner.nextDouble();
+                        System.out.print("Enter the second number : ");
+                        number2 = scanner.nextDouble();
+                    } catch (InputMismatchException error) {
+                        logger.error("Invalid input, Entered input is not a number");
+                        return;
+                    }
+                    System.out.println("Addition result is : " + calculator.add(number1, number2));
+                    break;
+                case 2:
+                    try {
+                        System.out.print("Enter the first number : ");
+                        number1 = scanner.nextDouble();
+                        System.out.print("Enter the second number : ");
+                        number2 = scanner.nextDouble();
+                    } catch (InputMismatchException error) {
+                        logger.error("Invalid input, Entered input is not a number");
+                        return;
+                    }
+                    System.out.println("Subtraction result is : " + calculator.subtract(number1, number2));
+                    break;
+                case 3:
+                    try {
+                        System.out.print("Enter the first number : ");
+                        number1 = scanner.nextDouble();
+                        System.out.print("Enter the second number : ");
+                        number2 = scanner.nextDouble();
+                    } catch (InputMismatchException error) {
+                        logger.error("Invalid input, Entered input is not a number");
+                        return;
+                    }
+                    System.out.println("Multiplication result is : " + calculator.multiply(number1, number2));
+                    break;
+                case 4:
+                    try {
+                        System.out.print("Enter the first number : ");
+                        number1 = scanner.nextDouble();
+                        System.out.print("Enter the second number : ");
+                        number2 = scanner.nextDouble();
+                    } catch (InputMismatchException error) {
+                        logger.error("Invalid input, Entered input is not a number");
+                        return;
+                    }
+                    System.out.println("Division result is : " + calculator.divide(number1, number2));
+                    break;
+                case 5:
+                    //Squareroot
+                    try {
+                        System.out.print("Enter the number : ");
+                        number1 = scanner.nextDouble();
+                    } catch (InputMismatchException error) {
+                        logger.error("Invalid input, Entered input is not a number");
+                        return;
+                    }
+                    System.out.println("Division result is : " + calculator.sqrroot(number1));
+                    break;
+                case 6:
+                    //Factorial
+                    try {
+                        System.out.print("Enter the number : ");
+                        number1 = scanner.nextDouble();
+                    } catch (InputMismatchException error) {
+                        logger.error("Invalid input, Entered input is not a number");
+                        return;
+                    }
+                    System.out.println("Division result is : " + calculator.factorial(number1));
+                    break;
+                case 7: //Natural Logarithm
+                    try {
+                        System.out.print("Enter the number : ");
+                        number1 = scanner.nextDouble();
+                    } catch (InputMismatchException error) {
+                        logger.error("Invalid input, Entered input is not a number");
+                        return;
+                    }
+                    System.out.println("Division result is : " + calculator.natural_log(number1));
+                    break;
+                case 8: //Power Function
+                    try {
+                        System.out.print("Enter the base number : ");
+                        number1 = scanner.nextDouble();
+                        System.out.print("Enter the power : ");
+                        number2 = scanner.nextDouble();
+                    } catch (InputMismatchException error) {
+                        logger.error("Invalid input, Entered input is not a number");
+                        return;
+                    }
+                    System.out.println("Division result is : " + calculator.power(number1, number2));
+                    break;
+                default:
+                    System.out.println("Exiting....");
+                    return;
+            }
+        } while (true);
+    }
     public double add(double first, double second) {
         logger.info("[ADD] :" + first + "," + second);
         double result = first + second;
