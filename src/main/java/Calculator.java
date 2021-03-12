@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 import static java.lang.Float.NaN;
 
 public class Calculator {
-    private static final Logger logger = LogManager.getLogger(Calculator.class);
+    private static final Logger  logger = LogManager.getLogger(Calculator.class);
 
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
@@ -16,7 +16,7 @@ public class Calculator {
         do {
             System.out.println("Calculator, Choose to perform operation");
             System.out.print("Press 1 to Add\nPress 2 to Subtract\nPress 3 to Multiply\nPress 4 to Divide\n"+
-                    "Press 5 to calculate Square Root\nPress 6 to calculate Factorial\nPress 7 to calculate Natural Logarithm\nPress 8 to calculate Power" +
+                    "Press 5 to calculate Square Root\nPress 6 to calculate Factorial\nPress 7 to calculate Natural Logarithm\nPress 8 to calculate Power\n" +
                     "Press any other key to exit\nEnter your choice: ");
             int choice;
             try {
@@ -122,6 +122,8 @@ public class Calculator {
                     System.out.println("Exiting....");
                     return;
             }
+
+            System.out.print("\n\n");
         } while (true);
     }
     public double add(double first, double second) {
