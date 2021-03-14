@@ -1,0 +1,8 @@
+---
+- name: Pull docker image of Minicalculator
+  hosts: all
+  tasks:
+    - name: Pull junit devops image
+      docker_image:
+        name: gandharvsuri/calculator
+        source: pull
