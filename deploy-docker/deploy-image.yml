@@ -4,5 +4,5 @@
   tasks:
     - name: Pull junit devops image
       docker_image:
-        name: gandharvsuri/calculator
+        name: gandharvsuri/calculator:latest
         source: pull
