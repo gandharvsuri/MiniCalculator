@@ -7,7 +7,7 @@ import org.apache.logging.log4j.Logger;
 import static java.lang.Float.NaN;
 
 public class Calculator {
-    private static final Logger  logger = LogManager.getLogger(Calculator.class);
+    private static final Logger logger = LogManager.getLogger(Calculator.class);
 
     public static void main(String[] args) {
         Calculator calculator = new Calculator();
